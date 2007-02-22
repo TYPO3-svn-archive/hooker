@@ -1,0 +1,71 @@
+#! /usr/bin/php -q
+<?php
+/***************************************************************
+*  Copyright notice
+*
+*  (c) 2004 Pavlenko Zorik (zorik@zorik.net)
+*  All rights reserved
+*
+*  This script is part of the TYPO3 project. The TYPO3 project is
+*  free software; you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation; either version 2 of the License, or
+*  (at your option) any later version.
+*
+*  The GNU General Public License can be found at
+*  http://www.gnu.org/copyleft/gpl.html.
+*
+*  This script is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  This copyright notice MUST APPEAR in all copies of the script!
+***************************************************************/
+
+// *****************************************
+// Standard initialization of a CLI module:
+// *****************************************
+  
+    // Defining circumstances for CLI mode:
+define('TYPO3_cliMode', TRUE);
+ 
+    // Defining PATH_thisScript here: Must be the ABSOLUTE path of this script in the right context:
+    // This will work as long as the script is called by it's absolute path!
+$this_script_path = $argv[0];
+if (!strcmp(substr($this_script_path,0,1),'/')) {
+	define('PATH_thisScript',$this_script_path);
+} else {
+	die('PATH_thisScript Must be the ABSOLUTE path of this script');
+}
+
+   
+    // Include configuration file:
+require(dirname(PATH_thisScript).'/conf.php');
+   
+    // Include init file:
+require(dirname(PATH_thisScript).'/'.$BACK_PATH.'init.php');
+
+    // Include parsehtml file:
+require(PATH_t3lib.'class.t3lib_parsehtml.php');
+
+    // Include parsehtml file:
+//require(PATH_t3lib.'class.t3lib_cs.php');
+
+
+
+
+
+
+require_once (dirname(PATH_thisScript).'/class.tx_hooker_daemon_base.php');
+// require_once (dirname(PATH_thisScript).'/class.tx_hooker_daemon_ext.php');
+require(dirname(PATH_thisScript).'/class.tx_hooker.php');
+$botPID = $argv[1];
+
+// $Daemon = new TestDaemon();
+// $Daemon->start();
+$Daemon = t3lib_div::makeInstance('tx_hooker');
+$Daemon->start();
+
+
+?>

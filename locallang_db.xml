@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'hooker'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_hooker_bot">HookerBot</label>
+			<label index="tx_hooker_bot.last_run">last_run</label>
+			<label index="tx_hooker_bot.run_interval">run_interval</label>
+			<label index="tx_hooker_bot.family">family</label>
+			<label index="tx_hooker_agent">HookerAgent</label>
+			<label index="tx_hooker_agent.filename">filename</label>
+			<label index="tx_hooker_agent.state1">state1</label>
+			<label index="tx_hooker_agent.state2">state2</label>
+			<label index="tx_hooker_agent.status">status</label>
+			<label index="tx_hooker_agent.importance">importance</label>
+			<label index="tx_hooker_agent.attempts">attempts</label>
+			<label index="tx_hooker_agent.botuid">botuid</label>
+		</languageKey>
+	</data>
+</T3locallang>
